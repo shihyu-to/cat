@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <title>黑貓工作室</title>
+    </head>
+
+    <header>
+        <nav>
+            <a href="index.html"><img class="logo" src="asset/black_cat_studio.svg"></a>
+            <ul>
+                <li><a href="index.html"><h3>黑貓工作室</h3></a></li>
+          </ul>
+      </nav>
+    </header>
+<body>
+    <!-- /////////////////////////////////////////////////////////////// -->
+    <section id="home">
+        <h1>歡迎來到黑貓工作室的網站</br>Welcome to Black-Cat Studio</h1>
+    </section>
+
+    <section id="prompt">
+        <h2>網站介紹頁</h2>
+        <p>哈囉，很高興見到你，這裏是黑貓工作室，一個正在慢慢茁壯的小網站。在這裏存放著 Dennis 網頁開發練習的小作品，還有一些雜的東西。目前看起來有點亂，但一切正在走向井然有序——至少我們是這麼相信的。<br><br>感謝你的到來，目前功能不多，但 Dennis 會努力譜寫美麗的詩篇，雖然不保證是好東西，但絕對是努力的結晶。</p>
+    </section>
+
+    <section id="archive">
+        <h2>Dennis 的檔案櫃</h2>
+        <p>Dennis 的檔案櫃使用 Hugo 架設於 Cloudflare Pages，這是黑貓工作室組成的主體之一 <br><a class="highlight-link" target="_blank" href="https://doc.dennis-black.dev"><i class="fa fa-link"></i> 前往 Dennis 的檔案櫃 doc.dennis-black.dev</a></p>
+    </section>
+
+    <section id="toolBox">
+        <h2>Dennis 的工具箱</h2>
+        <p>Dennis 開發的一些小工具，希望總有一天能夠 come in handy!</p>
+        <ul>
+            <li><a href="toolbox/creditAnalyse/">屏東大學111級資工系學分計算機</a></li>
+            <li><a href="toolbox/spinWheel_food/">食物選擇器</a></li>
+            <li><a href="toolbox/spinWheel_data/">隨機選擇器</a></li>
+            <li><a href="toolbox/electricWoodenFish/">電子木魚</a></li>
+            <li><a href="toolbox/ifruitGTA5/">GTA 5 手機簡訊產生器</a></li>
+        </ul>
+    </section>
+
+    <section id="about">
+        <h2>關於我</h2>
+        <div class="about-container">
+            <div class="slideshow-container">
+                <div class="mySlides fade">
+                    <img src="asset/dennisAndBird.gif" alt="Dennis" style="width:100%">
+                </div>
+                <div class="mySlides fade">
+                    <img src="asset/dennisAndBanana.jpg" alt="Dennis" style="width:100%">
+                </div>
+                <div class="mySlides fade">
+                    <img src="asset/graduate1.jpg" alt="DennisGraduate1" style="width:100%">
+                </div>
+                <div class="mySlides fade">
+                    <img src="asset/DennisAtHongKongPark.jpg" alt="DennisAtHongKongPark" style="width:100%">
+                </div>
+                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+            </div>
+            <br>
+            <div style="text-align:center">
+                <span class="dot" onclick="currentSlide(1)"></span> 
+                <span class="dot" onclick="currentSlide(2)"></span> 
+                <span class="dot" onclick="currentSlide(3)"></span> 
+                <span class="dot" onclick="currentSlide(4)"></span> 
+            </div>
+            <p>我是 Dennis，仍在學習的旅途上打怪練等。「秉持懷疑的態度學習」是我認為最重要的事情。不盲目接受任何事情，當先接受了，我們很多時候會限制我們的思考的方向，想盡辦法把答案湊出來盡可能接近固有框架下的「標準答案」。考試時，每一題肯定都會有標準答案；現實生活中，可能是一道需要自己創造選項的多選題，因此保持懷疑與探索，才能發現框架之外更具價值的答案。在這樣的思考模式下，遇到問題時我才能打破墨守成規的自己，提出一些非常規的立竿見影解決方案。
+        </div>
+        <br>
+        <div>
+            <p>如果你有任何問題或建議，歡迎隨時聯繫我！</p>
+            <p>電子郵箱：<a class="email-link" href="mailto:me@dennis-black.dev">me@dennis-black.dev</a>
+        </div>
+            
+    </section>
+
+    
+    <!-- /////////////////////////////////////////////////////////////// -->
+    <footer>
+        <p>&copy; 2025 黑貓工作室</p>
+    </footer>
+    <script>
+    let slideIndex = 0;
+    let slideTimer;
+    showSlides();
+
+    function plusSlides(n) {
+        clearTimeout(slideTimer);
+        slideIndex += n;
+        let slides = document.getElementsByClassName("mySlides");
+        if (slideIndex >= slides.length) { slideIndex = 0; }
+        if (slideIndex < 0) { slideIndex = slides.length - 1; }
+        showSlides(slideIndex, true);
+    }
+
+    function currentSlide(n) {
+        clearTimeout(slideTimer);
+        slideIndex = n - 1;
+        let slides = document.getElementsByClassName("mySlides");
+        if (slideIndex >= slides.length) { slideIndex = 0; }
+        if (slideIndex < 0) { slideIndex = slides.length - 1; }
+        showSlides(slideIndex, true);
+    }
+
+    function showSlides(n, manual) {
+        let i;
+        let slides = document.getElementsByClassName("mySlides");
+        let dots = document.getElementsByClassName("dot");
+        if (typeof n === 'undefined') n = slideIndex;
+        let slidesCount = slides.length;
+        if (n >= slidesCount) { slideIndex = 0; }
+        else if (n < 0) { slideIndex = slidesCount - 1; }
+        else { slideIndex = n; }
+        for (i = 0; i < slidesCount; i++) {
+            slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex].style.display = "block";
+        if (dots[slideIndex]) dots[slideIndex].className += " active";
+        if (!manual) {
+            slideTimer = setTimeout(function(){ showSlides(slideIndex + 1); }, 5000);
+        }
+    }
+    </script>
